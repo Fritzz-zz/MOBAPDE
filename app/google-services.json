@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "491281346261",
+    "firebase_url": "https://mobapde-17421.firebaseio.com",
+    "project_id": "mobapde-17421",
+    "storage_bucket": "mobapde-17421.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491281346261:android:2c132010097221aa",
+        "android_client_info": {
+          "package_name": "com.example.admin.mobapde"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491281346261-ipufi8p3944ua5hcu44o4i8t6kon59if.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKUPH2PSa4xc7oqWDD3yqcBvxYmm1E37s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
