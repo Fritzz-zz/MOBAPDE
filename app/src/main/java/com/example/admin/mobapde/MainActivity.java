@@ -71,10 +71,30 @@ public class MainActivity extends AppCompatActivity {
         //    views without needing to arrange the items programaitcally.
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_layout, menu);
+        MenuItem item = menu.findItem(R.id.pc_parts);
+        SearchView searchView =(SearchView)item.getActionView();
         return true;
     }
 
-/*    public boolean onCreateOptionsMenu(Menu menu) {
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
+   /* public boolean onCreateOptionsMenu(Menu menu) {
+        //(2) Inflaters are used to populate items from the layout XML. These can be used to make
+        //    views without needing to arrange the items programaitcally.
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_layout, menu);
+        return true;
+    }
+    public boolean onCreateOptionsMenu(Menu menu) {
         //(2) Inflaters are used to populate items from the layout XML. These can be used to make
         //    views without needing to arrange the items programaitcally.
         MenuInflater inflater = getMenuInflater();
@@ -96,22 +116,3 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
     */
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-}
-   /* public boolean onCreateOptionsMenu(Menu menu) {
-        //(2) Inflaters are used to populate items from the layout XML. These can be used to make
-        //    views without needing to arrange the items programaitcally.
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_layout, menu);
-        return true;
-    }
-*/
