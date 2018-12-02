@@ -7,6 +7,11 @@
         android:title="Home"/>
 
     <item
+        android:id="@+id/browse"
+        android:icon="@drawable/ic_library_books"
+        android:title="Browse"/>
+
+    <item
         android:id="@+id/categories"
         android:icon="@drawable/ic_apps"
         android:title="Categories"/>
@@ -21,9 +26,9 @@
         android:icon="@drawable/hamburger"
         android:title="Options"/>
 
-    <item
-        android:id="@+id/user"
-        android:icon="@drawable/ic_person"
-        android:title="User"/>
+    <!--<item-->
+        <!--android:id="@+id/user"-->
+        <!--android:icon="@drawable/ic_person"-->
+        <!--android:title="User"/>-->
 
 </menu>
