@@ -1,5 +1,6 @@
 package com.example.admin.mobapde;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -81,11 +82,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.admin:
+                nextActivity();
+                return true;
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void nextActivity(){
+        Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+        MainActivity.this.startActivity(intent);
     }
 }
    /* public boolean onCreateOptionsMenu(Menu menu) {
