@@ -4,7 +4,7 @@
     <item android:id="@+id/pc_parts"
         android:title="search_parts"
         android:icon="@android:drawable/ic_search_category_default"
-        app:actionViewClass="android.widget.SearchView"
+        app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="always">
 
     </item>
