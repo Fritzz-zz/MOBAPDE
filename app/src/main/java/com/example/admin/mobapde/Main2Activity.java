@@ -31,12 +31,14 @@ public class Main2Activity extends AppCompatActivity {
 
 
         mRootRef = FirebaseDatabase.getInstance().getReference("Product");
+
         SaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addProduct();
             }
         });
+
     }
 
     private void addProduct(){
@@ -57,4 +59,6 @@ public class Main2Activity extends AppCompatActivity {
             Toast.makeText(this,"Fill up all the fields",Toast.LENGTH_LONG).show();
         }
     }
+
+
 }
