@@ -1,15 +1,15 @@
-package com.example.admin.mobapde;
+package com.example.admin.mobapde.BrowseRecycler;
 
 
-//Model for each product in the recycler view
+
 //Not sure if we even need a model for the user
-public class Model {
+public class BrowseModel {
     private String name;
     private int img;
     private float price;
     private int qty;
 
-    public Model (String name, int img, float price, int qty) {
+    public BrowseModel(String name, int img, float price, int qty) {
         this.setName(name);
         this.setImg(img);
         this.setPrice(price);

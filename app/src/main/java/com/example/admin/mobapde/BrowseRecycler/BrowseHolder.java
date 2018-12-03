@@ -1,4 +1,4 @@
-package com.example.admin.mobapde;
+package com.example.admin.mobapde.BrowseRecycler;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -9,7 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Holder extends RecyclerView.ViewHolder{
+import com.example.admin.mobapde.ItemDetails;
+import com.example.admin.mobapde.R;
+
+public class BrowseHolder extends RecyclerView.ViewHolder{
 
     private TextView nameView;
     private TextView priceView;
@@ -23,7 +26,7 @@ public class Holder extends RecyclerView.ViewHolder{
     private int qty;
     private int image;
 
-    public Holder(@NonNull final View itemView) {
+    public BrowseHolder(@NonNull final View itemView) {
         super(itemView);
 
         nameView = itemView.findViewById(R.id.itemName);

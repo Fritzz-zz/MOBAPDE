@@ -3,11 +3,7 @@ package com.example.admin.mobapde;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -18,13 +14,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
+
+import com.example.admin.mobapde.BrowseRecycler.BrowseAdapter;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recycler;
-    private Adapter adapter;
+    private BrowseAdapter adapter;
     private RecyclerView.LayoutManager manager;
     private BottomNavigationView bottomNav;
     private Toolbar toolbar;
@@ -40,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         manager = new LinearLayoutManager(this);
 
-        adapter = new Adapter(this);
+        adapter = new BrowseAdapter(this);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -58,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment selectedFragment = null;
                 switch (menuItem.getItemId()) {
 
                     case R.id.home:
@@ -71,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.categories:
-                        toolbar.setTitle("Categories");
+                        selectedFragment = CategoriesFragment.newInstance();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, selectedFragment).commit();
                         selected = 3;
                         break;
 
