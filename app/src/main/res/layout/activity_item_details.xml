@@ -8,11 +8,10 @@
 
     <TextView
         android:id="@+id/productDetails"
-        android:layout_width="333dp"
+        android:layout_width="336dp"
         android:layout_height="42dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         android:gravity="center"
         android:text="Product Details"
         android:textSize="24sp"
@@ -36,7 +35,7 @@
         android:layout_height="36dp"
         android:layout_marginLeft="28dp"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -72,22 +71,61 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="95dp"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="48dp"
+        android:onClick="addToCart"
         android:text="add to cart"
-        app:layout_constraintStart_toEndOf="@+id/quantityView"
+        app:layout_constraintStart_toEndOf="@+id/minusQty"
         app:layout_constraintTop_toBottomOf="@+id/priceView" />
 
     <TextView
         android:id="@+id/quantityView"
-        android:layout_width="109dp"
-        android:layout_height="43dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="212dp"
+        android:layout_height="27dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/priceView" />
+
+    <TextView
+        android:id="@+id/Quantity"
+        android:layout_width="49dp"
+        android:layout_height="47dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/addQty"
+        app:layout_constraintTop_toBottomOf="@+id/quantityView" />
+
+    <Button
+        android:id="@+id/addQty"
+        android:layout_width="38dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="13dp"
+        android:onClick="addtoQty"
+        android:text="+"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quantityView" />
+
+    <Button
+        android:id="@+id/minusQty"
+        android:layout_width="38dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="13dp"
+        android:onClick="subtractfromQty"
+        android:text="-"
+        app:layout_constraintStart_toEndOf="@+id/Quantity"
+        app:layout_constraintTop_toBottomOf="@+id/quantityView" />
+
 </android.support.constraint.ConstraintLayout>

@@ -32,6 +32,8 @@ public class Holder extends RecyclerView.ViewHolder{
         btn = itemView.findViewById(R.id.button);
         img = itemView.findViewById(R.id.imageView);
 
+
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,8 +49,24 @@ public class Holder extends RecyclerView.ViewHolder{
 
     }
 
-    public void setName (String newText) { nameView.setText(newText); name = newText; }
-    public void setPrice (String newText) { priceView.setText("Price: Php " + newText); price = Float.parseFloat(newText);}
-    public void setQty (String newText) { qtyView.setText("Qty: " + newText); qty = Integer.parseInt(newText);}
-    public void setImg (int n) { img.setImageResource(n); image=n;}
+    public void setName (String newText) {
+        nameView.setText(newText);
+        name = newText;
+    }
+
+    public void setPrice (String newText) {
+        priceView.setText("Php " + newText);
+        price = Float.parseFloat(newText);
+    }
+
+    public void setQty (String newText) {
+        qtyView.setText("Available: " + newText);
+        qty = Integer.parseInt(newText);
+    }
+
+    public void setImg (int n) {
+        image = n;
+        img.setImageResource(n);
+    }
+
 }

@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Adapter adapter;
     private RecyclerView.LayoutManager manager;
     private BottomNavigationView bottomNav;
+    private Toolbar toolbar;
 
     private int selected;
 
@@ -40,13 +42,17 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new Adapter(this);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         bottomNav = findViewById(R.id.navigationView);
+
+
 
         recycler = findViewById(R.id.recycler);
         recycler.setLayoutManager(manager);
         recycler.setAdapter(adapter);
+
+        recycler.addItemDecoration(new DividerItemDecoration(recycler.getContext(), 1));
 
 
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -55,26 +61,27 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
 
                     case R.id.home:
-
+                        toolbar.setTitle("IWantPC");
                         selected = 1;
                         break;
 
                     case R.id.browse:
-
+                        toolbar.setTitle("IWantPC - Browse");
                         selected = 2;
                         break;
 
                     case R.id.categories:
-
+                        toolbar.setTitle("Categories");
                         selected = 3;
                         break;
 
                     case R.id.cart:
-
+                        toolbar.setTitle("Cart");
                         selected = 4;
                         break;
 
                     case R.id.options:
+                        toolbar.setTitle("Options");
                         selected = 5;
                         break;
 

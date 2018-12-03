@@ -9,10 +9,10 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler"
-        android:layout_width="match_parent"
-        android:layout_height="573dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="335dp"
+        android:layout_height="523dp"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="28dp" />
 
     <FrameLayout
         android:id="@+id/container"
