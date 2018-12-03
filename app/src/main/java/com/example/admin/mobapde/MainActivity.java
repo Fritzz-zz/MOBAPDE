@@ -1,5 +1,7 @@
 package com.example.admin.mobapde;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recycler;
     private Adapter adapter;
     private RecyclerView.LayoutManager manager;
-
-
     private BottomNavigationView bottomNav;
+
+    private int selected;
 
 
 
@@ -45,6 +47,42 @@ public class MainActivity extends AppCompatActivity {
         recycler = findViewById(R.id.recycler);
         recycler.setLayoutManager(manager);
         recycler.setAdapter(adapter);
+
+
+        bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+
+                    case R.id.home:
+
+                        selected = 1;
+                        break;
+
+                    case R.id.browse:
+
+                        selected = 2;
+                        break;
+
+                    case R.id.categories:
+
+                        selected = 3;
+                        break;
+
+                    case R.id.cart:
+
+                        selected = 4;
+                        break;
+
+                    case R.id.options:
+                        selected = 5;
+                        break;
+
+
+                }
+                return true;
+            }
+        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -61,9 +99,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
 
-                return true;
+            case R.id.login:
+                selected = 6;
+                break;
+
+            case R.id.signup:
+                selected = 7;
+                break;
+
+
         }
         return super.onOptionsItemSelected(item);
     }

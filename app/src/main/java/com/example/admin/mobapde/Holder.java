@@ -1,5 +1,6 @@
 package com.example.admin.mobapde;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -17,6 +18,7 @@ public class Holder extends RecyclerView.ViewHolder{
     private Button btn;
 
     private String name;
+    private String details;
     private float price;
     private int qty;
     private int image;
@@ -33,8 +35,13 @@ public class Holder extends RecyclerView.ViewHolder{
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(itemView.getContext(), name + " was added to cart!",
-                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), ItemDetails.class);
+                intent.putExtra("Name", name);
+                intent.putExtra("Details", details);
+                intent.putExtra("Price", price);
+                intent.putExtra("Quantity", qty);
+                intent.putExtra("Image", image);
+                v.getContext().startActivity(intent);
             }
         });
 
