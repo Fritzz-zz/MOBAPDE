@@ -111,7 +111,6 @@
         android:layout_marginLeft="39dp"
         android:layout_marginStart="39dp"
         android:layout_marginTop="13dp"
-        android:onClick="addtoQty"
         android:text="+"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quantityView" />
@@ -123,9 +122,15 @@
         android:layout_marginLeft="7dp"
         android:layout_marginStart="7dp"
         android:layout_marginTop="13dp"
-        android:onClick="subtractfromQty"
         android:text="-"
         app:layout_constraintStart_toEndOf="@+id/Quantity"
         app:layout_constraintTop_toBottomOf="@+id/quantityView" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
 </android.support.constraint.ConstraintLayout>

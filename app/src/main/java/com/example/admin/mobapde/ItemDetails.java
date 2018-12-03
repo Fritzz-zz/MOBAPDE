@@ -2,6 +2,7 @@ package com.example.admin.mobapde;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ public class ItemDetails extends AppCompatActivity {
     private TextView priceView;
     private TextView quantityView;
     private TextView quantity;
+    private Toolbar toolbar;
 
     private Button button;
     private Button add;
@@ -40,6 +42,16 @@ public class ItemDetails extends AppCompatActivity {
         priceView = findViewById(R.id.priceView);
         quantityView = findViewById(R.id.quantityView);
         button = findViewById(R.id.button2);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+
+            }
+        });
 
         quantity = findViewById(R.id.Quantity);
         qtycount = 0;
