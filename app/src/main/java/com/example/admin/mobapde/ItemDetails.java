@@ -14,11 +14,14 @@ public class ItemDetails extends AppCompatActivity {
     private TextView nameView;
     private TextView detailsView;
     private TextView priceView;
+    private TextView quantityView;
     private Button button;
 
     private String itemName;
     private String itemDetails;
     private float itemPrice;
+    private int itemQuantity;
+    private int itemImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +32,23 @@ public class ItemDetails extends AppCompatActivity {
         nameView = findViewById(R.id.nameView);
         detailsView = findViewById(R.id.detailsView);
         priceView = findViewById(R.id.priceView);
+        quantityView = findViewById(R.id.quantityView);
 
         itemName = getIntent().getExtras().getString("Name");
         itemDetails = getIntent().getExtras().getString("Details");
+        itemPrice = getIntent().getExtras().getFloat("Price");
+        itemQuantity = getIntent().getExtras().getInt("Quantity");
+        itemImage = getIntent().getExtras().getInt("Image");
+
+        image.setImageResource(itemImage);
+        nameView.setText(itemName);
+        detailsView.setText(itemDetails);
+        priceView.setText(Float.toString(itemPrice));
+        quantityView.setText(Integer.toString(itemQuantity));
+
+
+
+
 
 
 

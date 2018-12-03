@@ -72,10 +72,22 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="136dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="95dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="24dp"
         android:text="add to cart"
+        app:layout_constraintStart_toEndOf="@+id/quantityView"
+        app:layout_constraintTop_toBottomOf="@+id/priceView" />
+
+    <TextView
+        android:id="@+id/quantityView"
+        android:layout_width="109dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="28dp"
+        android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/priceView" />
 </android.support.constraint.ConstraintLayout>
