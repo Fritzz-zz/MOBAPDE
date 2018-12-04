@@ -1,6 +1,7 @@
 package com.example.admin.mobapde.BrowseRecycler;
 
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,8 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseHolder>{
 
     private ArrayList<BrowseModel> list;
 
-    public BrowseAdapter(MainActivity activity) {
+
+    public BrowseAdapter() {
         list = new ArrayList<BrowseModel>();
         //add all the data here
         //get from the firebase

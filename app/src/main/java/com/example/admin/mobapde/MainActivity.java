@@ -1,6 +1,5 @@
 package com.example.admin.mobapde;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -16,13 +15,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.admin.mobapde.BrowseRecycler.BrowseAdapter;
+import com.example.admin.mobapde.Fragments.BrowseFragment;
+import com.example.admin.mobapde.Fragments.CategoriesFragment;
+import com.example.admin.mobapde.Fragments.HomeFragment;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recycler;
-    private BrowseAdapter adapter;
-    private RecyclerView.LayoutManager manager;
     private BottomNavigationView bottomNav;
     private Toolbar toolbar;
 
@@ -35,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        manager = new LinearLayoutManager(this);
 
-        adapter = new BrowseAdapter(this);
+
+
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -45,11 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        recycler = findViewById(R.id.recycler);
-        recycler.setLayoutManager(manager);
-        recycler.setAdapter(adapter);
+//        recycler = findViewById(R.id.recycler);
+//        recycler.setLayoutManager(manager);
+//        recycler.setAdapter(adapter);
 
-        recycler.addItemDecoration(new DividerItemDecoration(recycler.getContext(), 1));
+//        recycler.addItemDecoration(new DividerItemDecoration(recycler.getContext(), 1));
+
+        loadFragment(new HomeFragment());
 
 
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -60,17 +61,18 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.home:
                         toolbar.setTitle("IWantPC");
+                        selectedFragment = new HomeFragment();
                         selected = 1;
                         break;
 
                     case R.id.browse:
                         toolbar.setTitle("IWantPC - Browse");
+                        selectedFragment = new BrowseFragment();
                         selected = 2;
                         break;
 
                     case R.id.categories:
-                        selectedFragment = CategoriesFragment.newInstance();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, selectedFragment).commit();
+                        selectedFragment = new CategoriesFragment();
                         selected = 3;
                         break;
 
@@ -86,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 }
-                return true;
+                return loadFragment(selectedFragment);
             }
         });
     }
@@ -99,6 +101,19 @@ public class MainActivity extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.pc_parts);
         SearchView searchView =(SearchView)item.getActionView();
         return true;
+    }
+
+    public boolean loadFragment(Fragment fragment) {
+        if (fragment != null){
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+
+
+            return true;
+        }
+
+
+        return false;
     }
 
 
