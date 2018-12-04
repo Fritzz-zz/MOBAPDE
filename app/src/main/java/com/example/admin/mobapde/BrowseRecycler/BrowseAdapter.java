@@ -1,13 +1,11 @@
 package com.example.admin.mobapde.BrowseRecycler;
 
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.admin.mobapde.MainActivity;
 import com.example.admin.mobapde.R;
 
 import java.util.ArrayList;
@@ -34,7 +32,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseHolder>{
     @Override
     public BrowseHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        View view = inflater.inflate(R.layout.row, viewGroup, false);
+        View view = inflater.inflate(R.layout.browse_row, viewGroup, false);
         BrowseHolder holder = new BrowseHolder(view);
         return holder;
     }

@@ -6,13 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/featuredText3"
+        android:layout_width="156dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Categories"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="500dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="1dp"
+        android:layout_width="358dp"
+        android:layout_height="489dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="76dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -29,7 +42,7 @@
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraintLayout1"
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/layout_border">
 
                     <ImageView
@@ -61,7 +74,7 @@
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraintLayout2"
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/layout_border">
 
                     <TextView
@@ -92,7 +105,7 @@
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraintLayout3"
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/layout_border">
 
                     <TextView
@@ -123,7 +136,7 @@
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraintLayout4"
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/layout_border">
 
                     <TextView
@@ -154,7 +167,7 @@
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraintLayout5"
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/layout_border">
 
                     <TextView
@@ -185,7 +198,7 @@
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraintLayout6"
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/layout_border">
 
                     <TextView
@@ -216,7 +229,7 @@
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraintLayout7"
                     android:layout_width="match_parent"
-                    android:layout_height="110dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/layout_border">
 
                     <TextView

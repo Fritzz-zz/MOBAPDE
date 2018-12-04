@@ -5,19 +5,17 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.admin.mobapde.BrowseRecycler.BrowseAdapter;
 import com.example.admin.mobapde.Fragments.BrowseFragment;
+import com.example.admin.mobapde.Fragments.CartFragment;
 import com.example.admin.mobapde.Fragments.CategoriesFragment;
-import com.example.admin.mobapde.Fragments.HomeFragment;
+import com.example.admin.mobapde.Fragments.FeaturedFragment;
+import com.example.admin.mobapde.Fragments.OptionsFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        recycler.addItemDecoration(new DividerItemDecoration(recycler.getContext(), 1));
 
-        loadFragment(new HomeFragment());
+        loadFragment(new FeaturedFragment());
 
 
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -60,29 +58,32 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
 
                     case R.id.home:
-                        toolbar.setTitle("IWantPC");
-                        selectedFragment = new HomeFragment();
+
+                        selectedFragment = new FeaturedFragment();
                         selected = 1;
                         break;
 
                     case R.id.browse:
-                        toolbar.setTitle("IWantPC - Browse");
+
                         selectedFragment = new BrowseFragment();
                         selected = 2;
                         break;
 
                     case R.id.categories:
+
                         selectedFragment = new CategoriesFragment();
                         selected = 3;
                         break;
 
                     case R.id.cart:
-                        toolbar.setTitle("Cart");
+
+                        selectedFragment = new CartFragment();
                         selected = 4;
                         break;
 
                     case R.id.options:
-                        toolbar.setTitle("Options");
+                        //toolbar.setTitle("Options");
+                        selectedFragment = new OptionsFragment();
                         selected = 5;
                         break;
 
