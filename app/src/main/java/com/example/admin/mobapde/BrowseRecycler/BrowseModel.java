@@ -8,6 +8,7 @@ public class BrowseModel {
     private int img;
     private float price;
     private int qty;
+    private String details;
 
     public BrowseModel(String name, int img, float price, int qty) {
         this.setName(name);
@@ -15,7 +16,6 @@ public class BrowseModel {
         this.setPrice(price);
         this.setQty(qty);
     }
-
 
     public String getName() {
         return name;
@@ -48,5 +48,14 @@ public class BrowseModel {
 
     public void setQty(int qty) {
         this.qty = qty;
+    }
+
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
     }
 }

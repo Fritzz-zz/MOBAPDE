@@ -20,12 +20,12 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseHolder>{
         //add all the data here
         //get from the firebase
         //when you buy, should update firebase and then put here
-        list.add(new BrowseModel("Test", R.drawable.hamburger, 2300, 3));
-        list.add(new BrowseModel("Test1", R.drawable.hamburger, 2300, 3));
-        list.add(new BrowseModel("Test1", R.drawable.hamburger, 2300, 3));
-        list.add(new BrowseModel("Test1", R.drawable.hamburger, 2300, 3));
-        list.add(new BrowseModel("Test1", R.drawable.hamburger, 2300, 3));
-        list.add(new BrowseModel("Test1", R.drawable.hamburger, 2300, 3));
+        list.add(new BrowseModel("Test", R.drawable.gpu, 12300, 3));
+        list.add(new BrowseModel("Test1", R.drawable.gpu1, 22600, 3));
+        list.add(new BrowseModel("Test1", R.drawable.casecool, 540, 3));
+        list.add(new BrowseModel("Test1", R.drawable.chasis, 3300, 3));
+        list.add(new BrowseModel("Test1", R.drawable.cpu, 10500, 3));
+        list.add(new BrowseModel("Test1", R.drawable.mobo, 10300, 3));
 
     }
 
