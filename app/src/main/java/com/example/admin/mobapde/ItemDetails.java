@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.squareup.picasso.Picasso;
+
 
 public class ItemDetails extends AppCompatActivity {
 
@@ -28,6 +30,8 @@ public class ItemDetails extends AppCompatActivity {
     private float itemPrice;
     private int itemQuantity;
     private int itemImage;
+
+    private String itemImageURL;
 
     private int qtycount;
 
@@ -59,16 +63,22 @@ public class ItemDetails extends AppCompatActivity {
         minus = findViewById(R.id.minusQty);
 
         itemName = getIntent().getExtras().getString("Name");
-        itemDetails = getIntent().getExtras().getString("Details");
+        itemDetails = getIntent().getExtras().getString("Description");
         itemPrice = getIntent().getExtras().getFloat("Price");
         itemQuantity = getIntent().getExtras().getInt("Quantity");
         itemImage = getIntent().getExtras().getInt("Image");
+        itemImageURL = getIntent().getExtras().getString("ImageURL");
 
-        image.setImageResource(itemImage);
+        //image.setImageResource(itemImage);
         nameView.setText("Item: " + itemName);
         detailsView.setText("Details:\n" + itemDetails);
         priceView.setText("Php " + Float.toString(itemPrice));
         quantityView.setText("Quantity Available: " + Integer.toString(itemQuantity));
+        Picasso.get()
+                .load(itemImageURL)
+                .fit()
+                .centerCrop()
+                .into(image);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override

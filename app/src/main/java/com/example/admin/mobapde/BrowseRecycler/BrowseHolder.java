@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.admin.mobapde.ItemDetails;
 import com.example.admin.mobapde.R;
@@ -21,10 +20,11 @@ public class BrowseHolder extends RecyclerView.ViewHolder{
     private Button btn;
 
     private String name;
-    private String details;
+    private String description;
     private float price;
     private int qty;
     private int image;
+    private String imageURL;
 
     public BrowseHolder(@NonNull final View itemView) {
         super(itemView);
@@ -42,10 +42,11 @@ public class BrowseHolder extends RecyclerView.ViewHolder{
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ItemDetails.class);
                 intent.putExtra("Name", name);
-                intent.putExtra("Details", details);
+                intent.putExtra("Description", description);
                 intent.putExtra("Price", price);
                 intent.putExtra("Quantity", qty);
                 intent.putExtra("Image", image);
+                intent.putExtra("ImageURL", imageURL);
                 v.getContext().startActivity(intent);
             }
         });
@@ -72,4 +73,24 @@ public class BrowseHolder extends RecyclerView.ViewHolder{
         img.setImageResource(n);
     }
 
+    public ImageView getImageView (){
+        return img;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 }

@@ -1,19 +1,19 @@
 package com.example.admin.mobapde.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.admin.mobapde.BrowseRecycler.BrowseAdapter;
+import com.example.admin.mobapde.EditAccount;
+import com.example.admin.mobapde.ItemDetails;
 import com.example.admin.mobapde.R;
 
 public class OptionsFragment extends Fragment {
@@ -27,6 +27,8 @@ public class OptionsFragment extends Fragment {
     private ConstraintLayout option2;
     private ConstraintLayout option3;
     private ConstraintLayout option4;
+
+
 
 
     @Override
@@ -64,7 +66,8 @@ public class OptionsFragment extends Fragment {
         option1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "TEST", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), EditAccount.class);
+                v.getContext().startActivity(intent);
             }
         });
 
@@ -93,4 +96,5 @@ public class OptionsFragment extends Fragment {
 
 
     }
+
 }
