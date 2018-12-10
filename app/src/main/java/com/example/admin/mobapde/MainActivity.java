@@ -1,5 +1,6 @@
 package com.example.admin.mobapde;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -124,10 +125,14 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.login:
                 selected = 6;
+                Intent login = new Intent(getApplicationContext(), Login.class);
+                MainActivity.this.startActivity(login);
                 break;
 
             case R.id.signup:
                 selected = 7;
+                Intent signup = new Intent(getApplicationContext(), SignUp.class);
+                MainActivity.this.startActivity(signup);
                 break;
 
 
