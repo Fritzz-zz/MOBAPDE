@@ -1,21 +1,21 @@
-package com.example.admin.mobapde.Fragments;
+package com.example.admin.mobapde;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.admin.mobapde.BrowseRecycler.BrowseAdapter;
-import com.example.admin.mobapde.BrowseRecycler.BrowseModel;
-import com.example.admin.mobapde.MainActivity;
+import com.example.admin.mobapde.CategoriesRecycler.CategoriesAdapter;
+import com.example.admin.mobapde.CategoriesRecycler.CategoriesModel;
 import com.example.admin.mobapde.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,69 +26,66 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BrowseFragment extends Fragment {
+public class ResultsActivity extends AppCompatActivity{
+
+    private Toolbar toolbar;
 
     private RecyclerView recycler;
-    private BrowseAdapter adapter;
+    private CategoriesAdapter adapter;
     private RecyclerView.LayoutManager manager;
 
     private ProgressBar progressCircle;
+    private Context c;
 
-    private List<BrowseModel> list;
+    private List<CategoriesModel> list;
     private DatabaseReference databaseReference;
-
-
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+        setContentView(R.layout.activity_results);
+        this.c = this;
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
 
-        final View view = inflater.inflate(R.layout.fragment_browse, container, false);
-        return view;
-    }
+            }
+        });
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        list = new ArrayList<>();
-
-        recycler = view.findViewById(R.id.recycler);
+        recycler = findViewById(R.id.resultsRecycler);
         recycler.hasFixedSize();
-        manager = new LinearLayoutManager(getContext());
+        manager = new LinearLayoutManager(this);
         recycler.setLayoutManager(manager);
-
-        progressCircle = view.findViewById(R.id.progress_circle);
-
+        list = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference("Products");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                    BrowseModel product = postSnapshot.getValue(BrowseModel.class);
+                    CategoriesModel product = postSnapshot.getValue(CategoriesModel.class);
                     list.add(product);
                 }
 
-                adapter = new BrowseAdapter(getActivity(), list);
+                adapter = new CategoriesAdapter(c, list);
                 recycler.setAdapter(adapter);
-                progressCircle.setVisibility(View.INVISIBLE);
+//                progressCircle.setVisibility(View.INVISIBLE);
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                progressCircle.setVisibility(View.INVISIBLE);
+                Toast.makeText(c, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+//                progressCircle.setVisibility(View.INVISIBLE);
             }
         });
-
-
-
     }
+
+
 }

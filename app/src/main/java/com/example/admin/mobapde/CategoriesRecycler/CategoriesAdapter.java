@@ -1,4 +1,4 @@
-package com.example.admin.mobapde.BrowseRecycler;
+package com.example.admin.mobapde.CategoriesRecycler;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,18 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.admin.mobapde.BrowseRecycler.BrowseModel;
 import com.example.admin.mobapde.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-
-
 import java.util.List;
 
-public class BrowseAdapter extends RecyclerView.Adapter<BrowseHolder>{
+public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesHolder>{
 
-    private List <BrowseModel> list;
+    private List <CategoriesModel> list;
 
 
     private final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -29,7 +28,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseHolder>{
 
 
 
-    public BrowseAdapter(Context c, List<BrowseModel> products) {
+    public CategoriesAdapter(Context c, List<CategoriesModel> products) {
         this.context = c;
         list = products;
 
@@ -46,15 +45,15 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseHolder>{
     }
 
     @Override
-    public BrowseHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public CategoriesHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.browse_row, viewGroup, false);
-        BrowseHolder holder = new BrowseHolder(view);
+        CategoriesHolder holder = new CategoriesHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BrowseHolder holder, int i) {
+    public void onBindViewHolder(@NonNull CategoriesHolder holder, int i) {
 //        holder.setName(list.get(i).getName());
 //        holder.setPrice(Float.toString(list.get(i).getPrice()));
 //        holder.setQty(Integer.toString(list.get(i).getQty()));
@@ -64,7 +63,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseHolder>{
 //        holder.setPrice(Float.toString(list.get(i).getProdPrice()));
 //        holder.setQty("0");
 //        holder.setImg(R.drawable.casecool);
-        BrowseModel current = list.get(i);
+        CategoriesModel current = list.get(i);
         holder.setName(list.get(i).getProdName());
         holder.setDescription(list.get(i).getProdDesc());
         holder.setPrice(Float.toString(list.get(i).getProdPrice()));

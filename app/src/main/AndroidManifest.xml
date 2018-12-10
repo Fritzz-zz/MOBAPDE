@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ItemDetails" />
-        <activity android:name=".EditAccount" />
+        <activity android:name=".EditAccountActivity" />
+        <activity android:name=".ResultsActivity"/>
+        <activity android:name=".LogInActivity"/>
     </application>
 
 </manifest>

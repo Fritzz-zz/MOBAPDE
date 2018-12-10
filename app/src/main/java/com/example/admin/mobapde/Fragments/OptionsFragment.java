@@ -12,8 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.admin.mobapde.EditAccount;
-import com.example.admin.mobapde.ItemDetails;
+import com.example.admin.mobapde.EditAccountActivity;
 import com.example.admin.mobapde.R;
 
 public class OptionsFragment extends Fragment {
@@ -66,7 +65,7 @@ public class OptionsFragment extends Fragment {
         option1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), EditAccount.class);
+                Intent intent = new Intent(v.getContext(), EditAccountActivity.class);
                 v.getContext().startActivity(intent);
             }
         });

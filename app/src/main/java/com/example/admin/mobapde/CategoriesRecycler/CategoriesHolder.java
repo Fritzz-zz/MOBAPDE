@@ -1,4 +1,4 @@
-package com.example.admin.mobapde.FeaturedRecycler;
+package com.example.admin.mobapde.CategoriesRecycler;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -7,12 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.admin.mobapde.ItemDetails;
 import com.example.admin.mobapde.R;
 
-public class FeaturedHolder extends RecyclerView.ViewHolder{
+public class CategoriesHolder extends RecyclerView.ViewHolder{
 
     private TextView nameView;
     private TextView priceView;
@@ -27,16 +26,18 @@ public class FeaturedHolder extends RecyclerView.ViewHolder{
     private int image;
     private String imageURL;
 
-    public FeaturedHolder(@NonNull final View itemView) {
+    public CategoriesHolder(@NonNull final View itemView) {
         super(itemView);
 
-//        nameView = itemView.findViewById(R.id.itemName);
-//        priceView = itemView.findViewById(R.id.price);
-//        qtyView = itemView.findViewById(R.id.quantity);
-//        btn = itemView.findViewById(R.id.button);
-        img = itemView.findViewById(R.id.featureImgView);
+        nameView = itemView.findViewById(R.id.itemName);
+        priceView = itemView.findViewById(R.id.price);
+        qtyView = itemView.findViewById(R.id.quantity);
+        btn = itemView.findViewById(R.id.button);
+        img = itemView.findViewById(R.id.imageView);
 
-        img.setOnClickListener(new View.OnClickListener() {
+
+
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ItemDetails.class);
@@ -50,63 +51,20 @@ public class FeaturedHolder extends RecyclerView.ViewHolder{
             }
         });
 
-
-
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(v.getContext(), ItemDetails.class);
-//                intent.putExtra("Name", name);
-//                intent.putExtra("Details", details);
-//                intent.putExtra("Price", price);
-//                intent.putExtra("Quantity", qty);
-//                intent.putExtra("Image", image);
-//                v.getContext().startActivity(intent);
-//            }
-//        });
-
     }
 
-//    public void setName (String newText) {
-//        nameView.setText(newText);
-//        name = newText;
-//    }
-//
-//    public void setPrice (String newText) {
-//        priceView.setText("Php " + newText);
-//        price = Float.parseFloat(newText);
-//    }
-//
-//    public void setQty (String newText) {
-//        qtyView.setText("Available: " + newText);
-//        qty = Integer.parseInt(newText);
-//    }
-//
-//    public void setImg (int n) {
-//        image = n;
-//        img.setImageResource(n);
-//    }
-//
-//    public ImageView getImageView () {
-//        return this.img;
-//    }
-//
-//    public String getProdImageUrl() {
-//        return this.imageUrl;
-//    }
-
     public void setName (String newText) {
-        //nameView.setText(newText);
+        nameView.setText(newText);
         name = newText;
     }
 
     public void setPrice (String newText) {
-        //priceView.setText("Php " + newText);
+        priceView.setText("Php " + newText);
         price = Float.parseFloat(newText);
     }
 
     public void setQty (String newText) {
-        //qtyView.setText("Available: " + newText);
+        qtyView.setText("Available: " + newText);
         qty = Integer.parseInt(newText);
     }
 
@@ -135,7 +93,4 @@ public class FeaturedHolder extends RecyclerView.ViewHolder{
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
-
-
-
 }

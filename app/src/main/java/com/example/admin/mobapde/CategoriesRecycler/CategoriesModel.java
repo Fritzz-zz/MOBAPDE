@@ -1,12 +1,14 @@
-package com.example.admin.mobapde.FeaturedRecycler;
+package com.example.admin.mobapde.CategoriesRecycler;
 
 
 
 //Not sure if we even need a model for the user
-public class FeaturedModel {
+public class CategoriesModel {
 //    private String name;
 //    private int img;
-//    private String imageUrl;
+//    private float price;
+//    private int qty;
+//    private String details;
 
     private String ProdName;
     private String ProdImageUrl;
@@ -16,18 +18,71 @@ public class FeaturedModel {
     private int ProdQty;
 
 
-    public FeaturedModel(String Name, String ImageUrl, String Type, float Price, String Desc, int ProdQty) {
+    public CategoriesModel(String Name, String ImageUrl, String Type, float Price, String Desc, int ProdQty){
+        if(Name.trim().equals("")){
+            Name = "No Name";
+        }
+        else if(Desc.trim().equals("")){
+            Desc = "No Description";
+        }
+        else if(Price <= 0){
+            Price = 0.0f;
+        }
+
         setProdName(Name);
         setProdImageUrl(ImageUrl);
         setProdType(Type);
         setProdPrice(Price);
         setProdDesc(Desc);
         setProdQty(ProdQty);
-    }
-
-    public FeaturedModel () {
 
     }
+
+    public CategoriesModel () {
+
+    }
+
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public int getImg() {
+//        return img;
+//    }
+//
+//    public void setImg(int img) {
+//        this.img = img;
+//    }
+//
+//    public float getPrice() {
+//        return price;
+//    }
+//
+//    public void setPrice(float price) {
+//        this.price = price;
+//    }
+//
+//
+//    public int getQty() {
+//        return qty;
+//    }
+//
+//    public void setQty(int qty) {
+//        this.qty = qty;
+//    }
+//
+//
+//    public String getDetails() {
+//        return details;
+//    }
+//
+//    public void setDetails(String details) {
+//        this.details = details;
+//    }
 
     public String getProdName() {
         return ProdName;

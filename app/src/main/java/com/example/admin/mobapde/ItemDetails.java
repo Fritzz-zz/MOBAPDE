@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 
+
 public class ItemDetails extends AppCompatActivity {
 
     private ImageView image;
@@ -77,6 +78,7 @@ public class ItemDetails extends AppCompatActivity {
         Picasso.get()
                 .load(itemImageURL)
                 .fit()
+                .placeholder(R.mipmap.ic_launcher)
                 .centerCrop()
                 .into(image);
 

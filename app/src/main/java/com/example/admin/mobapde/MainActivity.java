@@ -1,5 +1,7 @@
 package com.example.admin.mobapde;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -25,12 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
     private int selected;
 
+    private Context c;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.c = this;
 
 
 
@@ -123,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.login:
+                Intent intent = new Intent(c, LogInActivity.class);
+                c.startActivity(intent);
+
                 selected = 6;
                 break;
 

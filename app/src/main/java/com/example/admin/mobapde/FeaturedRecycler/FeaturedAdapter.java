@@ -9,22 +9,22 @@ import android.view.ViewGroup;
 import com.example.admin.mobapde.BrowseRecycler.BrowseHolder;
 import com.example.admin.mobapde.BrowseRecycler.BrowseModel;
 import com.example.admin.mobapde.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedHolder>{
 
-    private ArrayList<FeaturedModel> list;
+    private List<FeaturedModel> list;
 
 
-    public FeaturedAdapter() {
-        list = new ArrayList<FeaturedModel>();
-        //add all the data here
-        //get from the firebase
-        //when you buy, should update firebase and then put here
-        list.add(new FeaturedModel("Test", R.drawable.gpu1));
-        list.add(new FeaturedModel("Test2", R.drawable.gpu2));
-        list.add(new FeaturedModel("Test3", R.drawable.gpu3));
+    public FeaturedAdapter(List<FeaturedModel> list) {
+        this.list = list;
+
+//        list.add(new FeaturedModel("Test", R.drawable.gpu1));
+//        list.add(new FeaturedModel("Test2", R.drawable.gpu2));
+//        list.add(new FeaturedModel("Test3", R.drawable.gpu3));
 
     }
 
@@ -38,7 +38,19 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull FeaturedHolder featuredHolder, int i) {
-        featuredHolder.setImg(list.get(i).getImg());
+        //featuredHolder.setImg(list.get(i).getImg());
+        FeaturedModel current = list.get(i);
+        featuredHolder.setName(list.get(i).getProdName());
+        featuredHolder.setDescription(list.get(i).getProdDesc());
+        featuredHolder.setPrice(Float.toString(list.get(i).getProdPrice()));
+        featuredHolder.setImageURL(list.get(i).getProdImageUrl());
+        featuredHolder.setQty(String.valueOf(list.get(i).getProdQty()));
+        Picasso.get()
+                .load(list.get(i).getProdImageUrl())
+                .placeholder(R.mipmap.ic_launcher)
+                .fit()
+                .centerCrop()
+                .into(featuredHolder.getImageView());
     }
 
 

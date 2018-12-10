@@ -17,7 +17,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.example.admin.mobapde.R;
 
-public class EditAccount extends AppCompatActivity {
+public class EditAccountActivity extends AppCompatActivity {
 
     private EditText username;
     private EditText email;
