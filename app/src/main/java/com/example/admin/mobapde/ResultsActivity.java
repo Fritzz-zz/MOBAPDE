@@ -21,6 +21,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -47,6 +48,8 @@ public class ResultsActivity extends AppCompatActivity{
         setContentView(R.layout.activity_results);
         this.c = this;
 
+        String type = getIntent().getExtras().getString("Type");
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
@@ -63,9 +66,13 @@ public class ResultsActivity extends AppCompatActivity{
         manager = new LinearLayoutManager(this);
         recycler.setLayoutManager(manager);
         list = new ArrayList<>();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Products");
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        Query query = FirebaseDatabase.getInstance().getReference("Products")
+                .orderByChild("prodType")
+                .equalTo(type);
+
+
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){

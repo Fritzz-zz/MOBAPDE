@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.example.admin.mobapde.ItemDetails;
 import com.example.admin.mobapde.R;
 import com.example.admin.mobapde.ResultsActivity;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class CategoriesFragment extends Fragment {
 
@@ -62,6 +64,7 @@ public class CategoriesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ResultsActivity.class);
+                intent.putExtra("Type", "GPU");
 //                intent.putExtra("Name", name);
 //                intent.putExtra("Description", description);
 //                intent.putExtra("Price", price);
@@ -74,37 +77,60 @@ public class CategoriesFragment extends Fragment {
         img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "TEST", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), ResultsActivity.class);
+                intent.putExtra("Type", "CPU");
+                v.getContext().startActivity(intent);
             }
         });
         img3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "TEST", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), ResultsActivity.class);
+                intent.putExtra("Type", "Chassis");
+                v.getContext().startActivity(intent);
+
             }
         });
         img4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "TEST", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), ResultsActivity.class);
+                intent.putExtra("Type", "RAM");
+                v.getContext().startActivity(intent);
             }
         });
         img5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "TEST", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), ResultsActivity.class);
+                intent.putExtra("Type", "Motherboard");
+                v.getContext().startActivity(intent);
+
             }
         });
         img6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "TEST", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), ResultsActivity.class);
+                intent.putExtra("Type", "Power Supply");
+                v.getContext().startActivity(intent);
+
             }
         });
         img7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "TEST", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), ResultsActivity.class);
+                intent.putExtra("Type", "Heatsink");
+                v.getContext().startActivity(intent);
+            }
+        });
+        img8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ResultsActivity.class);
+                intent.putExtra("Type", "Case Cooling");
+                v.getContext().startActivity(intent);
             }
         });
 

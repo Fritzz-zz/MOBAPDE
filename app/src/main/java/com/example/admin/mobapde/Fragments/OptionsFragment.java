@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.admin.mobapde.EditAccountActivity;
+import com.example.admin.mobapde.FundsActivity;
 import com.example.admin.mobapde.R;
 
 public class OptionsFragment extends Fragment {
@@ -73,7 +74,8 @@ public class OptionsFragment extends Fragment {
         option2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "TEST", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), FundsActivity.class);
+                v.getContext().startActivity(intent);
             }
         });
 

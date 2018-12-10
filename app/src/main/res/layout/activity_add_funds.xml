@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/fundsView"
+        android:layout_width="321dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="108dp"
+        android:background="@drawable/layout_border2"
+        android:text="TextView"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/funds100"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="81dp"
+        android:text="100"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fundsView" />
+
+    <Button
+        android:id="@+id/funds200"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="81dp"
+        android:text="200"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/funds100"
+        app:layout_constraintTop_toBottomOf="@+id/fundsView" />
+
+    <Button
+        android:id="@+id/funds500"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="81dp"
+        android:text="500"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/funds200"
+        app:layout_constraintTop_toBottomOf="@+id/fundsView" />
+
+    <Button
+        android:id="@+id/funds1000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="49dp"
+        android:text="1000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/funds100" />
+
+    <Button
+        android:id="@+id/funds2000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="49dp"
+        android:text="2000"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/funds1000"
+        app:layout_constraintTop_toBottomOf="@+id/funds200" />
+
+    <Button
+        android:id="@+id/fundsCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="66dp"
+        android:text="Cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/funds1000" />
+
+    <Button
+        android:id="@+id/fundsAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="136dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="163dp"
+        android:text="Accept"
+        app:layout_constraintStart_toEndOf="@+id/fundsCancel"
+        app:layout_constraintTop_toBottomOf="@+id/funds500" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/addFundsToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+</android.support.constraint.ConstraintLayout>

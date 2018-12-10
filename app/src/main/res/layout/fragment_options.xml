@@ -89,7 +89,7 @@
                 android:layout_marginStart="116dp"
                 android:layout_marginTop="12dp"
                 android:gravity="left|center"
-                android:text="Add Payment Method"
+                android:text="Add Funds"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

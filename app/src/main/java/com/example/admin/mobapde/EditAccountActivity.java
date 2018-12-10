@@ -19,13 +19,14 @@ import com.example.admin.mobapde.R;
 
 public class EditAccountActivity extends AppCompatActivity {
 
-    private EditText username;
+
     private EditText email;
-    private EditText birthday;
+
     private EditText password;
 
-    private Button addPayment;
+
     private Button confirm;
+    private Button cancel;
 
     private Toolbar toolbar;
 
@@ -35,13 +36,11 @@ public class EditAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_account);
 
-        username = findViewById(R.id.usernameText);
         email = findViewById(R.id.emailText);
-        birthday = findViewById(R.id.birthdayText);
         password = findViewById(R.id.passwordText);
 
-        addPayment = findViewById(R.id.addPayBtn);
         confirm = findViewById(R.id.confirmBtn);
+        cancel = findViewById(R.id.cancelBtn);
         toolbar = findViewById(R.id.editAccountToolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
@@ -49,6 +48,20 @@ public class EditAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+
+            }
+        });
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });
