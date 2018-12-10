@@ -59,7 +59,7 @@ public class ItemDetails extends AppCompatActivity {
         });
 
         quantity = findViewById(R.id.Quantity);
-        qtycount = 0;
+        qtycount = 1;
         add = findViewById(R.id.addQty);
         minus = findViewById(R.id.minusQty);
 
@@ -85,15 +85,17 @@ public class ItemDetails extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                qtycount++;
-                quantity.setText(Integer.toString(qtycount));
+                if (qtycount <= itemQuantity) {
+                    qtycount++;
+                    quantity.setText(Integer.toString(qtycount));
+                }
             }
         });
 
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (qtycount > 0)
+                if (qtycount > 1)
                 qtycount--;
                 quantity.setText(Integer.toString(qtycount));
             }
@@ -102,7 +104,14 @@ public class ItemDetails extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), itemName + " was added to cart!", Toast.LENGTH_SHORT).show();
+                if (qtycount < itemQuantity) {
+
+                    Toast.makeText(v.getContext(), itemName + " was added to cart!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    Toast.makeText(v.getContext(), "Not enough stock!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

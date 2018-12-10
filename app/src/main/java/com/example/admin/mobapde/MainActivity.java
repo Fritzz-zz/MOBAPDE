@@ -103,7 +103,10 @@ public class MainActivity extends AppCompatActivity {
         //(2) Inflaters are used to populate items from the layout XML. These can be used to make
         //    views without needing to arrange the items programaitcally.
         MenuInflater inflater = getMenuInflater();
+        //if they there is no user logged in
         inflater.inflate(R.menu.menu_layout, menu);
+        //else
+        //inflater.inflate(R.menu.menu_layout_logout, menu);
         MenuItem item = menu.findItem(R.id.pc_parts);
         SearchView searchView =(SearchView)item.getActionView();
         return true;
@@ -128,14 +131,19 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.login:
-                Intent intent = new Intent(c, LogInActivity.class);
-                c.startActivity(intent);
+                Intent loginIntent = new Intent(c, LogInActivity.class);
+                c.startActivity(loginIntent);
 
                 selected = 6;
                 break;
 
             case R.id.signup:
+                Intent signupIntent = new Intent(c, SignUpActivity.class);
+                c.startActivity(signupIntent);
                 selected = 7;
+                break;
+            case R.id.logout:
+                selected = 8;
                 break;
 
 

@@ -87,7 +87,7 @@ public class OptionsFragment extends Fragment {
         option4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "TEST", Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "Cart Cleared!", Toast.LENGTH_SHORT).show();
             }
         });
 
