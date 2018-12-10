@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "491281346261-rtqrup5l7n2qrb3csu07dcdm67omjpg4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.admin.mobapde",
+            "certificate_hash": "e9251943ba7dcc218acc1d6474825b2ef83bf266"
+          }
+        },
+        {
           "client_id": "491281346261-ipufi8p3944ua5hcu44o4i8t6kon59if.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,101 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491281346261-ipufi8p3944ua5hcu44o4i8t6kon59if.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491281346261:android:b0c119b02b237529",
+        "android_client_info": {
+          "package_name": "com.example.xehan.loginsignupmobap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491281346261-6kaddnisbvpkjqo780u2j7b1me0b1v59.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.xehan.loginsignupmobap",
+            "certificate_hash": "e9251943ba7dcc218acc1d6474825b2ef83bf266"
+          }
+        },
+        {
+          "client_id": "491281346261-ipufi8p3944ua5hcu44o4i8t6kon59if.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKUPH2PSa4xc7oqWDD3yqcBvxYmm1E37s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491281346261-ipufi8p3944ua5hcu44o4i8t6kon59if.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491281346261:android:cc87b3f42e8a59db",
+        "android_client_info": {
+          "package_name": "com.example.xehan.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491281346261-abhq5r9qfu831u6kbfnejb53ru8ij1so.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.xehan.myapplication",
+            "certificate_hash": "e9251943ba7dcc218acc1d6474825b2ef83bf266"
+          }
+        },
+        {
+          "client_id": "491281346261-ipufi8p3944ua5hcu44o4i8t6kon59if.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKUPH2PSa4xc7oqWDD3yqcBvxYmm1E37s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491281346261-ipufi8p3944ua5hcu44o4i8t6kon59if.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

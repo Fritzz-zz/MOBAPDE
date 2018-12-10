@@ -7,6 +7,22 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/LogInTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="155dp"
+        android:layout_marginLeft="165dp"
+        android:layout_marginRight="155dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="512dp"
+        android:text="Already Have an Account? Log In"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/signupTextView2"
         android:layout_width="130dp"
         android:layout_height="48dp"
