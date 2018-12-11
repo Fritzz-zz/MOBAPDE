@@ -18,11 +18,10 @@
         </activity>
         <activity android:name=".ItemDetails" />
         <activity android:name=".EditAccountActivity" />
-        <activity android:name=".ResultsActivity" />
-        <activity android:name=".LogInActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".FundsActivity" />
-        <activity android:name=".SellActivity"></activity>
+        <activity android:name=".ResultsActivity"/>
+        <activity android:name=".LogInActivity"/>
+        <activity android:name=".SignUpActivity"/>
+        <activity android:name=".FundsActivity"/>
     </application>
 
 </manifest>

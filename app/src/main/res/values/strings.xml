@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">IWantPC</string>
+    <string-array name="pc_parts">
+        <item>CPU</item>
+        <item>GPU</item>
+        <item>Motherboard</item>
+        <item>PSU</item>
+        <item>RAM</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

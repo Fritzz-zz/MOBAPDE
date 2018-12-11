@@ -18,7 +18,6 @@ import com.example.admin.mobapde.Fragments.CartFragment;
 import com.example.admin.mobapde.Fragments.CategoriesFragment;
 import com.example.admin.mobapde.Fragments.FeaturedFragment;
 import com.example.admin.mobapde.Fragments.OptionsFragment;
-import com.google.firebase.auth.FirebaseAuth;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,11 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Context c;
 
-    private String Userkey;
 
-    private boolean UserSession ;
-
-    private int SessionTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,18 +38,12 @@ public class MainActivity extends AppCompatActivity {
         this.c = this;
 
 
+
+
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         bottomNav = findViewById(R.id.navigationView);
-
-        CheckActiveSession();
-
-        if (Userkey.equals("ACTIVE")){
-            UserSession = Boolean.TRUE;
-        }
-        else if(Userkey.equals("!ACTIVE")){
-            UserSession = Boolean.FALSE;
-        }
 
 
 
@@ -110,31 +99,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void CheckActiveSession(){
-
-        if (SessionTracker>0){
-            Userkey = getIntent().getStringExtra("SESSION");
-        }
-        else {
-            Userkey = "!ACTIVE";
-        }
-    }
-
     public boolean onCreateOptionsMenu(Menu menu) {
         //(2) Inflaters are used to populate items from the layout XML. These can be used to make
         //    views without needing to arrange the items programaitcally.
         MenuInflater inflater = getMenuInflater();
-
-        if(UserSession) {
-            inflater.inflate(R.menu.menu_layout_logout, menu);
-            MenuItem item = menu.findItem(R.id.pc_parts);
-            SearchView searchView = (SearchView) item.getActionView();
-        }
-        else if (!UserSession) {
-            inflater.inflate(R.menu.menu_layout, menu);
-            MenuItem item = menu.findItem(R.id.pc_parts);
-            SearchView searchView = (SearchView) item.getActionView();
-        }
+        //if they there is no user logged in
+        inflater.inflate(R.menu.menu_layout, menu);
+        //else
+        //inflater.inflate(R.menu.menu_layout_logout, menu);
+        MenuItem item = menu.findItem(R.id.pc_parts);
+        SearchView searchView =(SearchView)item.getActionView();
         return true;
     }
 
@@ -158,10 +132,8 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.login:
                 Intent loginIntent = new Intent(c, LogInActivity.class);
-                SessionTracker = 1;
-                String loginsession = "ACTIVE";
-                loginIntent.putExtra("SESSION", loginsession);
                 c.startActivity(loginIntent);
+
                 selected = 6;
                 break;
 
@@ -171,12 +143,6 @@ public class MainActivity extends AppCompatActivity {
                 selected = 7;
                 break;
             case R.id.logout:
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                SessionTracker = 0;
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
                 selected = 8;
                 break;
 
