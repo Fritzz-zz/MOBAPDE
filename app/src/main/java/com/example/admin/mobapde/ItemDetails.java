@@ -123,7 +123,10 @@ public class ItemDetails extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (qtycount < itemQuantity) {
+
+                if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+
+                    if (qtycount < itemQuantity) {
 
 //                    if (pushKey.isEmpty()) {
 
@@ -136,11 +139,14 @@ public class ItemDetails extends AppCompatActivity {
 //                    }
 
 
-                    Toast.makeText(v.getContext(), itemName + " was added to cart!", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                        Toast.makeText(v.getContext(), itemName + " was added to cart!", Toast.LENGTH_SHORT).show();
+                    } else {
 
-                    Toast.makeText(v.getContext(), "Not enough stock!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(), "Not enough stock!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+                    Toast.makeText(v.getContext(), "You need to login to add to cart", Toast.LENGTH_SHORT).show();
                 }
             }
         });

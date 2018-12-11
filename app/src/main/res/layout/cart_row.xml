@@ -40,17 +40,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/cartTotalView"
-        android:layout_width="100dp"
-        android:layout_height="19dp"
-        android:layout_marginLeft="268dp"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="84dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/cancelImg"
         android:layout_width="35dp"
