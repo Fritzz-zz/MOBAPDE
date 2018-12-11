@@ -120,7 +120,9 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Log In Successful", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    finish();
                     startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
