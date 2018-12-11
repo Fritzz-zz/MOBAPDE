@@ -14,11 +14,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.admin.mobapde.BrowseRecycler.BrowseModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
@@ -33,6 +36,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private String Email, Password;
 
     private FirebaseAuth mAuth;
+
+    private DatabaseReference mRootRef;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +64,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         });
 
         img.setImageResource(R.drawable.ic_person_add);
+
+        mRootRef = FirebaseDatabase.getInstance().getReference("Users");
 
         btn.setOnClickListener(this);
 
@@ -110,6 +117,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Sign Up Successful", Toast.LENGTH_SHORT).show();
+
+                    UserModel user = new UserModel(Email,0.0f);
+
+                    String uploadID = mRootRef.push().getKey();
+                    mRootRef.child(uploadID).setValue(user);
+
                     Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
