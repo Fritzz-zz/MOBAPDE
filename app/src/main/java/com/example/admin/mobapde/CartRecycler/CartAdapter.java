@@ -32,7 +32,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder>{
     public CartHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View view = inflater.inflate(R.layout.cart_row, viewGroup, false);
-        CartHolder holder = new CartHolder(view);
+        CartHolder holder = new CartHolder(view, this);
         return holder;
     }
 
@@ -49,5 +49,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartHolder>{
     public int getItemCount() {
         return list.size();
 
+    }
+
+    public void removeRow(int position){
+        list.remove(position);
+        notifyItemRemoved(position);
     }
 }

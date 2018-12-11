@@ -21,10 +21,12 @@ public class CartHolder extends RecyclerView.ViewHolder{
     private String name;
     private float price;
     private int qty;
+    private CartAdapter adapter;
 
 
-    public CartHolder(@NonNull final View itemView) {
+    public CartHolder(@NonNull final View itemView, CartAdapter cartAdapter) {
         super(itemView);
+        adapter = cartAdapter;
 
         img = itemView.findViewById(R.id.cancelImg);
         nameView = itemView.findViewById(R.id.cartItemName);
@@ -38,6 +40,7 @@ public class CartHolder extends RecyclerView.ViewHolder{
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "REMOVE", Toast.LENGTH_SHORT).show();
+                adapter.removeRow(getAdapterPosition());
             }
         });
 
