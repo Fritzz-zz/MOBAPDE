@@ -27,8 +27,6 @@ public class CartHolder extends RecyclerView.ViewHolder{
     private int qty;
     private CartAdapter adapter;
 
-    private Button confirm;
-
     private DatabaseReference mRootRef;
     private FirebaseAuth mAuth;
 
@@ -43,11 +41,7 @@ public class CartHolder extends RecyclerView.ViewHolder{
         nameView = itemView.findViewById(R.id.cartItemName);
         priceView = itemView.findViewById(R.id.cartPriceView);
         qtyView = itemView.findViewById(R.id.cartQtyView);
-        totalView = itemView.findViewById(R.id.cartTotalView);
 
-        confirm = itemView.findViewById(R.id.cartConfirmBtn);
-
-        totalView.setText("");
 
         mRootRef = FirebaseDatabase.getInstance().getReference("Users");
         mAuth = FirebaseAuth.getInstance();
@@ -62,12 +56,8 @@ public class CartHolder extends RecyclerView.ViewHolder{
             }
         });
 
-        confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
+
 
 
 

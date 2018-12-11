@@ -33,9 +33,9 @@
         android:id="@+id/cartTotalView"
         android:layout_width="172dp"
         android:layout_height="41dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_vertical"
         android:text="TextView"
         android:textSize="18sp"
@@ -43,13 +43,13 @@
         app:layout_constraintTop_toBottomOf="@+id/cartRecycler" />
 
     <Button
-        android:id="@+id/cartConfirmBtn"
+        android:id="@+id/cartCheckOut"
         android:layout_width="136dp"
         android:layout_height="41dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="20dp"
         android:text="check out"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/cartTotalView"
         app:layout_constraintTop_toBottomOf="@+id/cartRecycler" />
 </android.support.constraint.ConstraintLayout>
