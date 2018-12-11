@@ -8,6 +8,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.admin.mobapde.BrowseRecycler.BrowseModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 
@@ -26,6 +31,7 @@ public class ItemDetails extends AppCompatActivity {
     private Button add;
     private Button minus;
 
+    private String itemType;
     private String itemName;
     private String itemDetails;
     private float itemPrice;
@@ -35,6 +41,11 @@ public class ItemDetails extends AppCompatActivity {
     private String itemImageURL;
 
     private int qtycount;
+
+    private DatabaseReference mRootRef;
+    private FirebaseAuth mAuth;
+    private String pushKey;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,12 +74,18 @@ public class ItemDetails extends AppCompatActivity {
         add = findViewById(R.id.addQty);
         minus = findViewById(R.id.minusQty);
 
+        pushKey = "";
+
         itemName = getIntent().getExtras().getString("Name");
         itemDetails = getIntent().getExtras().getString("Description");
         itemPrice = getIntent().getExtras().getFloat("Price");
         itemQuantity = getIntent().getExtras().getInt("Quantity");
         itemImage = getIntent().getExtras().getInt("Image");
         itemImageURL = getIntent().getExtras().getString("ImageURL");
+        itemType = getIntent().getExtras().getString("Type");
+
+        mRootRef = FirebaseDatabase.getInstance().getReference("Users");
+        mAuth = FirebaseAuth.getInstance();
 
         //image.setImageResource(itemImage);
         nameView.setText("Item: " + itemName);
@@ -85,9 +102,11 @@ public class ItemDetails extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (qtycount <= itemQuantity) {
+                if (qtycount < itemQuantity) {
                     qtycount++;
                     quantity.setText(Integer.toString(qtycount));
+
+
                 }
             }
         });
@@ -105,6 +124,17 @@ public class ItemDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (qtycount < itemQuantity) {
+
+//                    if (pushKey.isEmpty()) {
+
+                        BrowseModel item = new BrowseModel(itemName, itemImageURL, itemType, itemPrice, itemDetails, qtycount);
+
+                        DatabaseReference cartRef = mRootRef.child(mAuth.getCurrentUser().getUid()).child("userCart").push();
+
+                        cartRef.setValue(item);
+                        pushKey = cartRef.getKey();
+//                    }
+
 
                     Toast.makeText(v.getContext(), itemName + " was added to cart!", Toast.LENGTH_SHORT).show();
                 }

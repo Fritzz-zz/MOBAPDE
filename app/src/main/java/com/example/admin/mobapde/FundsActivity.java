@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class FundsActivity extends AppCompatActivity {
 
     private Context c;
@@ -27,6 +31,9 @@ public class FundsActivity extends AppCompatActivity {
 
     private float fFund;
     private float fTemp;
+
+    private DatabaseReference mRootRef;
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -62,6 +69,9 @@ public class FundsActivity extends AppCompatActivity {
         cancel = findViewById(R.id.fundsCancel);
 
         funds = findViewById(R.id.fundsView);
+
+        mAuth = FirebaseAuth.getInstance();
+        mRootRef = FirebaseDatabase.getInstance().getReference("Users");
 
 
 
@@ -116,6 +126,9 @@ public class FundsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 fFund = fTemp;
+
+                mRootRef.child(mAuth.getCurrentUser().getUid()).child("userMoney").setValue(fFund);
+
             }
         });
 

@@ -1,5 +1,6 @@
 package com.example.admin.mobapde.CartRecycler;
 
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.admin.mobapde.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CartHolder extends RecyclerView.ViewHolder{
 
@@ -23,6 +27,13 @@ public class CartHolder extends RecyclerView.ViewHolder{
     private int qty;
     private CartAdapter adapter;
 
+    private Button confirm;
+
+    private DatabaseReference mRootRef;
+    private FirebaseAuth mAuth;
+
+
+
 
     public CartHolder(@NonNull final View itemView, CartAdapter cartAdapter) {
         super(itemView);
@@ -34,6 +45,13 @@ public class CartHolder extends RecyclerView.ViewHolder{
         qtyView = itemView.findViewById(R.id.cartQtyView);
         totalView = itemView.findViewById(R.id.cartTotalView);
 
+        confirm = itemView.findViewById(R.id.cartConfirmBtn);
+
+        totalView.setText("");
+
+        mRootRef = FirebaseDatabase.getInstance().getReference("Users");
+        mAuth = FirebaseAuth.getInstance();
+
 
 
         img.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +59,13 @@ public class CartHolder extends RecyclerView.ViewHolder{
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "REMOVE", Toast.LENGTH_SHORT).show();
                 adapter.removeRow(getAdapterPosition());
+            }
+        });
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 

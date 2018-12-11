@@ -70,6 +70,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseHolder>{
         holder.setPrice(Float.toString(list.get(i).getProdPrice()));
         holder.setImageURL(list.get(i).getProdImageUrl());
         holder.setQty(String.valueOf(list.get(i).getProdQty()));
+        holder.setType(list.get(i).getProdType());
         Picasso.get()
                 .load(list.get(i).getProdImageUrl())
                 .placeholder(R.mipmap.ic_launcher)

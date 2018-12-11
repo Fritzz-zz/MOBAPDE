@@ -21,6 +21,7 @@ public class BrowseHolder extends RecyclerView.ViewHolder{
 
     private String name;
     private String description;
+    private String type;
     private float price;
     private int qty;
     private int image;
@@ -47,6 +48,7 @@ public class BrowseHolder extends RecyclerView.ViewHolder{
                 intent.putExtra("Quantity", qty);
                 intent.putExtra("Image", image);
                 intent.putExtra("ImageURL", imageURL);
+                intent.putExtra("Type", type);
                 v.getContext().startActivity(intent);
             }
         });
@@ -92,5 +94,9 @@ public class BrowseHolder extends RecyclerView.ViewHolder{
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

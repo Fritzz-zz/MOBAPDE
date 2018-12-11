@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.admin.mobapde.BrowseRecycler.BrowseModel;
+import com.example.admin.mobapde.CartRecycler.CartModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -22,6 +23,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
@@ -118,10 +121,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Sign Up Successful", Toast.LENGTH_SHORT).show();
 
-                    UserModel user = new UserModel(Email,0.0f);
+                    UserModel user = new UserModel(Email,0.0f, new ArrayList<CartModel>(), mAuth.getCurrentUser().getUid());
+
+
 
                     String uploadID = mRootRef.push().getKey();
-                    mRootRef.child(uploadID).setValue(user);
+                    mRootRef.child(mAuth.getCurrentUser().getUid()).setValue(user);
+
 
                     Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

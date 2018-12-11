@@ -18,6 +18,7 @@ public class BrowseModel {
     private int ProdQty;
 
 
+
     public BrowseModel(String Name, String ImageUrl, String Type, float Price, String Desc, int ProdQty){
         if(Name.trim().equals("")){
             Name = "No Name";
