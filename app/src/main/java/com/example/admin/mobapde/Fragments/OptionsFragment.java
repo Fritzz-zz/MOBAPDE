@@ -15,6 +15,9 @@ import android.widget.Toast;
 import com.example.admin.mobapde.EditAccountActivity;
 import com.example.admin.mobapde.FundsActivity;
 import com.example.admin.mobapde.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class OptionsFragment extends Fragment {
 
@@ -28,6 +31,8 @@ public class OptionsFragment extends Fragment {
     private ConstraintLayout option3;
     private ConstraintLayout option4;
 
+    private DatabaseReference mRootRef;
+    private FirebaseAuth mAuth;
 
 
 
@@ -47,6 +52,8 @@ public class OptionsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        mAuth = FirebaseAuth.getInstance();
 
         op1 = view.findViewById(R.id.optionImg1);
         op2 = view.findViewById(R.id.optionImg2);
@@ -89,6 +96,10 @@ public class OptionsFragment extends Fragment {
         option4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mRootRef = FirebaseDatabase.getInstance().getReference("Users/" +mAuth.getCurrentUser().getUid()+ "/userCart");
+                mRootRef.removeValue();
+
+
                 Toast.makeText(v.getContext(), "Cart Cleared!", Toast.LENGTH_SHORT).show();
             }
         });
