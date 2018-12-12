@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -137,6 +138,8 @@ public class FundsActivity extends AppCompatActivity {
                         fFund = fTemp;
 
                         mRoot.child(mAuth.getCurrentUser().getUid()).child("userMoney").setValue(fFund);
+
+                        Toast.makeText(getApplicationContext(), "Funds have been added Successfully", Toast.LENGTH_SHORT).show();
 
                     }
                 });
