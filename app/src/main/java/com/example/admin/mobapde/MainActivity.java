@@ -90,15 +90,22 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.cart:
-
-                        selectedFragment = new CartFragment();
-                        selected = 4;
+                        if(firebaseAuth.getCurrentUser()!=null){
+                            selectedFragment = new CartFragment();
+                            selected = 4;
+                        }
+                        else if(firebaseAuth.getCurrentUser()==null)
+                            Toast.makeText(MainActivity.this,"Log in to view cart", Toast.LENGTH_LONG).show();
                         break;
 
                     case R.id.options:
                         //toolbar.setTitle("Options");
-                        selectedFragment = new OptionsFragment();
-                        selected = 5;
+                        if(firebaseAuth.getCurrentUser()!=null) {
+                            selectedFragment = new OptionsFragment();
+                            selected = 5;
+                        }
+                        else if(firebaseAuth.getCurrentUser()==null)
+                        Toast.makeText(MainActivity.this,"Log in to view options", Toast.LENGTH_LONG).show();
                         break;
 
 
