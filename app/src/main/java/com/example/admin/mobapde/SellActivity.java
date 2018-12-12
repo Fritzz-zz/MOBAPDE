@@ -35,7 +35,6 @@ import java.lang.reflect.Type;
 public class SellActivity extends AppCompatActivity {
 
     private EditText editTextModel,editTextPrice,TypeTxt,QtyTxt,DescTxt;
-    private TextView ViewShopTxt;
     private ImageView imageView;
     private Button AddProdBtn,SelectImgBtn;
     private ProgressBar progressBar;
@@ -86,13 +85,6 @@ public class SellActivity extends AppCompatActivity {
                 intent.setType("image/*");
 
                 startActivityForResult(intent,GALLERY_INTENT);
-            }
-        });
-
-        ViewShopTxt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
         //String Type = spinnerType.getSelectedItem().toString();
