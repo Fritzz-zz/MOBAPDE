@@ -137,9 +137,9 @@ public class FundsActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         fFund = fTemp;
 
-                        mRoot.child(mAuth.getCurrentUser().getUid()).child("userMoney").setValue(fFund);
-
                         Toast.makeText(getApplicationContext(), "Funds have been added Successfully", Toast.LENGTH_SHORT).show();
+
+                        mRoot.child(mAuth.getCurrentUser().getUid()).child("userMoney").setValue(fFund);
 
                     }
                 });
